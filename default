@@ -1,9 +1,16 @@
 server {
-    listen 80;                  # 监听80端口
-    server_name _;              # 匹配所有域名（或替换为你的域名/IP）
+    listen 80;
+    server_name _;  # 匹配所有请求，或替换为你的域名/IP
 
+    # 配置根目录和默认图片
     location / {
-        default_type text/html; # 指定返回类型为纯文本
-        return 200 'Yin Jianqiang!'; # 直接返回文本
+        root /usr/share/nginx/html;
+        index test.jpg;  # 直接返回图片作为默认响应
+    }
+
+    # 确保图片被正确识别MIME类型
+    location ~* \.(jpg|jpeg|png|gif)$ {
+        expires 30d;  # 客户端缓存30天
+        add_header Cache-Control "public";
     }
 }
