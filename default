@@ -1,0 +1,9 @@
+server {
+    listen 80;                  # 监听80端口
+    server_name _;              # 匹配所有域名（或替换为你的域名/IP）
+
+    location / {
+        default_type text/html; # 指定返回类型为纯文本
+        return 200 'Hello Nginx!'; # 直接返回文本
+    }
+}
