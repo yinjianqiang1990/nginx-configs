@@ -4,6 +4,6 @@ server {
 
     location / {
         default_type text/html; # 指定返回类型为纯文本
-        return 200 'Hello World!'; # 直接返回文本
+        return 200 'Yin Jianqiang!'; # 直接返回文本
     }
 }
